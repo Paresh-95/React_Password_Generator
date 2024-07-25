@@ -38,63 +38,65 @@ function App() {
 
   return (
     <div className="bg-[#F0F0F0] h-screen flex flex-col md:flex-row items-center justify-center">
-      <div className="w-full max-w-md h-auto mx-auto shadow-md rounded-lg p-6 m-auto text-white bg-[#F87474]">
-        <h1 className="text-white text-center pt-2">Password Generator</h1>
-        <div className="flex items-center justify-between shadow rounded-lg overflow-hidden mb-4">
-          <input
-            type="text"
-            value={pass}
-            className="outline-none w-4/5 py-1 px-3 text-black rounded-lg"
-            placeholder="password"
-            ref={passwordRef}
-            readOnly
-          />
-          <button
-            onClick={copyPasswordToClipboard}
-            className="focus:ring-4 shadow-lg transform active:scale-95 transition-transform outline-none bg-blue-700 text-white shrink-0 py-1 px-3 rounded-lg"
-          >
-            Copy
-          </button>
-        </div>
-        <div className="flex flex-col md:flex-row text-sm gap-2 p-2 items-center">
-          <input
-            type="range"
-            min={6}
-            max={100}
-            value={length}
-            className="cursor-pointer"
-            onChange={(e) => {
-              setlength(e.target.value);
-            }}
-          />
-          <label>Length: {length}</label>
-          <div className="flex items-center gap-2 mt-2 md:mt-0">
+      <div className="flex w-full md:w-1/2 h-full items-center justify-center p-4">
+        <div className="w-full max-w-md h-auto mx-auto shadow-md rounded-lg p-6 text-white bg-[#F87474]">
+          <h1 className="text-white text-center pt-2">Password Generator</h1>
+          <div className="flex items-center justify-between shadow rounded-lg overflow-hidden mb-4">
             <input
-              type="checkbox"
-              defaultChecked={numAllowed}
-              id="numberInput"
-              onChange={() => {
-                setnumAllowed((prev) => !prev);
+              type="text"
+              value={pass}
+              className="outline-none w-4/5 py-1 px-3 text-black rounded-lg"
+              placeholder="password"
+              ref={passwordRef}
+              readOnly
+            />
+            <button
+              onClick={copyPasswordToClipboard}
+              className="focus:ring-4 shadow-lg transform active:scale-95 transition-transform outline-none bg-blue-700 text-white shrink-0 py-1 px-3 rounded-lg"
+            >
+              Copy
+            </button>
+          </div>
+          <div className="flex flex-col md:flex-row text-sm gap-2 p-2 items-center">
+            <input
+              type="range"
+              min={6}
+              max={100}
+              value={length}
+              className="cursor-pointer"
+              onChange={(e) => {
+                setlength(e.target.value);
               }}
             />
-            <label htmlFor="numberInput">Numbers</label>
-            <input
-              type="checkbox"
-              defaultChecked={charAllowed}
-              id="characterInput"
-              onChange={() => {
-                setCharAllowed((prev) => !prev);
-              }}
-            />
-            <label htmlFor="characterInput">Characters</label>
+            <label>Length: {length}</label>
+            <div className="flex items-center gap-2 mt-2 md:mt-0">
+              <input
+                type="checkbox"
+                defaultChecked={numAllowed}
+                id="numberInput"
+                onChange={() => {
+                  setnumAllowed((prev) => !prev);
+                }}
+              />
+              <label htmlFor="numberInput">Numbers</label>
+              <input
+                type="checkbox"
+                defaultChecked={charAllowed}
+                id="characterInput"
+                onChange={() => {
+                  setCharAllowed((prev) => !prev);
+                }}
+              />
+              <label htmlFor="characterInput">Characters</label>
+            </div>
           </div>
         </div>
       </div>
-      <div className="flex justify-center mt-8 md:mt-0 md:ml-8">
+      <div className="flex w-full md:w-1/2 h-full justify-center items-center p-4">
         <img
           src={img1}
           alt="bg-img"
-          className="h-64 w-64 md:w-auto md:h-auto object-cover"
+          className="h-full w-full object-cover rounded-lg"
         />
       </div>
     </div>
@@ -102,5 +104,3 @@ function App() {
 }
 
 export default App;
-
-//updated
